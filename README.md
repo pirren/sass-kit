@@ -62,7 +62,7 @@ A class block looks like this:
     values: $spacers
   ),
 ```
-Responsive: true indicates it will output responsive variants. The list of variants will looks like this:
+`responsive: true` indicates it will output responsive variants. The list of variants will looks like this:
 ```
 .p-0 { ... }
 .p-1 { ... }
