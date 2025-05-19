@@ -30,7 +30,7 @@ Make sure your `main.scss` file includes **at least** the necessary modules:
 ```
 
 ## Customization
-Customizing any way you see fit. Recommended starting points are variables and utility classes.
+Customize any way you see fit. Recommended starting points are variables and utility classes.
 
 ### Adjust variables
 
