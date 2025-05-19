@@ -62,16 +62,18 @@ A class block looks like this:
     values: $spacers
   ),
 ```
-`responsive: true` indicates it will output responsive variants. The list of variants will looks like this:
+`responsive: true` indicates it will output responsive variants. A responsive class will output like this:
 ```
 .p-0 { ... }
 .p-1 { ... }
 .p-2 { ... }
 ...
-.md:p-0 { ... } // Kicks in at media breakpoint medium, defined in _variables.scss
-.md:p-1 { ... } // Kicks in at media breakpoint medium, defined in _variables.scss
-.md:p-2 { ... } // Kicks in at media breakpoint medium, defined in _variables.scss
+.md:p-0 { ... } // Kicks in at media breakpoint medium(md), defined in _variables.scss
+.md:p-1 { ... } // Kicks in at media breakpoint medium(md), defined in _variables.scss
+...
+.lg:p-0 { ... } // Kicks in at media breakpoint large(lg), defined in _variables.scss
+.lg:p-1 { ... } // Kicks in at media breakpoint large(lg), defined in _variables.scss
 ...
 ```
 
-Utility classes will always take precedent over others (`!important`) with the cascading order of responsive variations taking highest priority.
+Utility classes will all take precedence with important flag (`!important`), with the cascading order of responsive variations taking highest priority.
