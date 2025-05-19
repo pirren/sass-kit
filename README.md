@@ -26,7 +26,6 @@ Make sure your `main.scss` file includes **at least** the necessary modules:
 @use 'base/reset';
 @use 'base/typography';
 @use 'utilities/utilities';
-@use 'base/fonts';
 ...
 ```
 
