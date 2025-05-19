@@ -64,7 +64,6 @@
   }
 }
 
-// "Private" mixins
 // Apply props to class
 @mixin -apply-props($prop, $value) {
   @if meta.type-of($prop) == 'list' {
