@@ -10,13 +10,14 @@
   color: #000;
   padding: map.get($spacers, 2) map.get($spacers, 4);
 
-  border-width: 2px;
-  border-style: solid;
+  border: 0;
   border-radius: map.get($radiuses, 2);
   cursor: pointer;
   transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 
-  // @include generate-buttons(); // all theme colors
+  // @include generate-buttons(); // will add buttons for all $colors
+  
+  // $mix is the color being mixed with the base color when hovering a button
   @include generate-buttons($only: ('primary'), $mix: black);
   @include generate-buttons($only: ('secondary'), $mix: black);
   @include generate-buttons($only: ('accent'), $mix: white);
