@@ -48,7 +48,7 @@ $font-body: 'Work Sans', sans-serif;
 
 ### Customize utilities
 
-Modify `utilities/_utilities.scss` to change which utility classes and generated and how. For example:
+Modify `utilities/_utilities.scss` to change which utility classes are generated and how. For example:
   - Add new utility classes
   - Adjust spacing scale or breakpoints
   - Customize resulting class names
