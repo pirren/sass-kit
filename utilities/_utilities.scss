@@ -157,7 +157,40 @@ $util-classes:
   ),
   // border utils
   "border": (
+    responsive: true,
     property: border,
+    values: (
+      null: 1px solid #222,
+      0: 0
+    )
+  ),
+  "border-top": (
+    responsive: true,
+    property: border-top,
+    values: (
+      null: 1px solid #222,
+      0: 0
+    )
+  ),
+  "border-right": (
+    responsive: true,
+    property: border-right,
+    values: (
+      null: 1px solid #222,
+      0: 0
+    )
+  ),
+  "border-bottom": (
+    responsive: true,
+    property: border-bottom,
+    values: (
+      null: 1px solid #222,
+      0: 0
+    )
+  ),
+  "border-left": (
+    responsive: true,
+    property: border-left,
     values: (
       null: 1px solid #222,
       0: 0
@@ -165,7 +198,7 @@ $util-classes:
   ),
   "border-color": (
     property: border-color,
-    class: border,
+    class: border-color,
     values: $colors
   ),
   // flexbox utils
