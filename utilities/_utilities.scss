@@ -7,6 +7,19 @@
 
 $util-classes: 
 (
+  // size utils 
+  "width": (
+    responsive: true,
+    property: width,
+    class: w,
+    values: $size-percentages
+  ),
+  "height": (
+    responsive: true,
+    property: height,
+    class: h,
+    values: $size-percentages
+  ),
   // color utils
   "text": (
     property: color,

@@ -47,10 +47,20 @@ $breakpoints: (
   'xl': 75em  // ~1200px
 );
 
+// Spacing & Radiuses
 $default-spacer: 1rem;
 $-spacing-multipliers: 0, 0.25, 0.5, 1, 1.5;
 $-radius-multipliers: 0, 0.125, 0.375, 0.5, 1;
 
-// Do not touch these
+// Size percentages
+$size-percentages: (
+  0: 0%, 
+  25: 25%, 
+  50: 50%, 
+  75: 75%, 
+  100: 100%
+);
+
+// Do not change
 $spacers: scale-to-map($-spacing-multipliers, $default-spacer);
 $radiuses: scale-to-map($-radius-multipliers, $default-spacer);
