@@ -1,0 +1,20 @@
+/* main.scss */
+
+// base
+@use 'base/theme-vars';
+@use 'base/reset';
+@use 'base/base';
+@use 'base/typography';
+@use 'base/headings';
+
+// layout
+@use 'layout/container';
+
+// components
+@use 'components/buttons';
+
+// utilities
+@use 'utilities/utilities';
+
+// fonts
+@use 'base/fonts';

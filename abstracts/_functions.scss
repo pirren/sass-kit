@@ -1,0 +1,47 @@
+/* abstracts/_functions.scss */
+
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:color';
+
+// Convert: Scale to map
+// Example:
+//  $multipliers: 0.1 0.2 0.3 ...;
+//  $base: 1rem;
+//  @return: (1: 0.1rem, 2: 0.2rem, 3: 0.3rem, ...) 
+@function scale-to-map($multipliers, $base) {
+  $result: ();
+  @for $i from 1 through list.length($multipliers) {
+    $value: list.nth($multipliers, $i) * $base;
+    $result: map.set($result, $i - 1, $value);
+  }
+  @return $result;
+}
+
+// Convert: List to map
+// Example: 
+//  $list: a b;
+//  @return: (a: a, b: b);
+@function list-to-map($list) {
+  $out: ();
+  @each $item in $list {
+    $out: map.set($out, $item, $item);
+  }
+  @return $out;
+}
+
+// Get light or dark based on calculating a colors relative luminance or perceived brightness (YIQ formula)
+//   $color: color to test
+//   $dark: optional color to return as dark
+//   $light: optional color to return as light
+//   @return: light or dark, whichever scores the best constrast
+@function yiq-contrast-color($color, $dark: #000, $light: #fff) {
+  $r: color.channel($color, 'red');
+  $g: color.channel($color, 'green');
+  $b: color.channel($color, 'blue');
+
+  // YIQ formula for brightness
+  $yiq: calc((($r * 299) + ($g * 587) + ($b * 114)) / 1000);
+
+  @return if($yiq >= 128, $dark, $light);
+}

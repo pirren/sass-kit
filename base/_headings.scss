@@ -1,0 +1,10 @@
+/* base/_headings.scss */
+
+@use '../abstracts/variables' as *;
+@use 'sass:map';
+
+@each $tag, $scale in $heading-scale {
+  #{$tag} {
+    font-size: calc(#{$default-font-size} * #{$scale});
+  }
+}

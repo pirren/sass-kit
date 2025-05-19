@@ -1,0 +1,5 @@
+/* base/_theme-vars.scss */
+
+@use '../abstracts/mixins' as *;
+
+@include generate-css-vars;

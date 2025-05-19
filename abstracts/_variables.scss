@@ -1,0 +1,56 @@
+/* abstracts/_variables.scss */
+
+@use 'functions' as *;
+
+// Debug & Testing variables
+$debug-color-contrast: false;
+
+// Individual color tokens
+$color-primary:     #4E8098;
+$color-secondary:   #FAF9F6;
+$color-accent:      #F76C5E;
+$color-highlight:   #FFE66D; 
+$color-dark:        #3D3D3D;
+$color-muted:       #858585;
+$color-whitesmoke:  #F4F7F5;
+
+$colors: (
+  'primary': $color-primary,
+  'secondary': $color-secondary,
+  'accent': $color-accent,
+  'highlight': $color-highlight,
+  'dark': $color-dark,
+  'muted': $color-muted,
+  'whitesmoke': $color-whitesmoke
+);
+
+// Typography, and font stacks
+$default-font-size: 1rem;
+$heading-scale: (
+  h1: 3,
+  h2: 2,
+  h3: 1.5,
+  h4: 1.25,
+  h5: 1,
+  h6: 0.875
+);
+// Fonts should be imported at /base/_fonts.scss 
+$font-heading: 'Nunito', Helvetica, Arial, sans-serif;
+$font-body: 'Work Sans', Helvetica, Arial, sans-serif;
+
+// Breakpoints
+$breakpoints: (
+  'xs': 0,    // Mobile-first
+  'sm': 30em, // ~480px
+  'md': 48em, // ~768px
+  'lg': 64em, // ~1024px
+  'xl': 75em  // ~1200px
+);
+
+$default-spacer: 1rem;
+$-spacing-multipliers: 0, 0.25, 0.5, 1, 1.5;
+$-radius-multipliers: 0, 0.125, 0.375, 0.5, 1;
+
+// Do not touch these
+$spacers: scale-to-map($-spacing-multipliers, $default-spacer);
+$radiuses: scale-to-map($-radius-multipliers, $default-spacer);

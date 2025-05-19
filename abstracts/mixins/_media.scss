@@ -1,0 +1,25 @@
+/* abstracts/mixins/_media.scss */
+
+@use '../variables' as *;
+@use 'sass:meta';
+@use 'sass:map';
+
+// Media breakpoints
+@mixin respond-to($breakpoint) {
+  $value: null;
+
+  @if meta.type-of($breakpoint) == 'string' {
+    $value: map.get($breakpoints, $breakpoint);
+  }
+  @else if meta.type-of($breakpoint) == 'number' {
+    $value: $breakpoint;
+  }
+
+  @if $value != null {
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint `#{$breakpoint}` not found in $breakpoints map.";
+  }
+}
