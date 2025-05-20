@@ -29,6 +29,8 @@ Make sure your `main.scss` file includes **at least** the necessary modules:
 ...
 ```
 
+---
+
 ## Customization
 Customize any way you see fit. Recommended starting points are variables and utility classes.
 
@@ -39,7 +41,9 @@ Customize by tweaking variables in  `abstracts/_variables.scss`:
 // Change the color palette
 // Set the primary color
 $color-primary: #004d40;
-... 
+
+...
+
 // Update typography
 $default-font-size: 1rem;
 $font-heading: 'Nunito', sans-serif;
@@ -67,13 +71,41 @@ A class block looks like this:
 .p-0 { ... }
 .p-1 { ... }
 .p-2 { ... }
+
 ...
+
 .md:p-0 { ... } // Kicks in at media breakpoint medium(md), defined in _variables.scss
 .md:p-1 { ... } // Kicks in at media breakpoint medium(md), defined in _variables.scss
+
 ...
+
 .lg:p-0 { ... } // Kicks in at media breakpoint large(lg), defined in _variables.scss
 .lg:p-1 { ... } // Kicks in at media breakpoint large(lg), defined in _variables.scss
+
 ...
 ```
 
 Utility classes will all take precedence with important flag (`!important`), with the cascading order of responsive variations taking highest priority.
+
+---
+
+## Cheat sheet
+
+### Install Sass for local testing
+
+```
+npm init -y
+npm install sass --save-dev
+```
+
+package.json: 
+
+```
+...
+  "scripts": {
+    "sass": "sass --watch main.scss:dist/main.css --style=compressed"
+  }
+...
+```
+
+Finally run with `npm run sass`
