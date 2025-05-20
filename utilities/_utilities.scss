@@ -313,10 +313,12 @@ $util-classes:
   ),
 );
 
-// Generate all util classes in cascade-order
+// Generate base classes
 @each $name, $data in $util-classes {
-  // Generate base classes
   @include generate-util-class($name, $data, $responsive: false);
-  // Generate responsive classes after base classes so that they will take prio
+}
+
+// Generate responsive classes after base classes so that they will take prio
+@each $name, $data in $util-classes {
   @include generate-util-class($name, $data, $responsive: true);
 }
