@@ -19,6 +19,18 @@
       background-color: $hover-color;
       color: func.yiq-contrast-color($hover-color);
     }
+
+    &.btn--outline {
+      background-color: transparent;
+      border-color: $bg-color;
+      color: $bg-color;
+      
+      &:hover {
+        $hover-color: color.mix($mix, $bg-color, 20%);
+        background-color: $hover-color;
+        color: func.yiq-contrast-color($hover-color);
+      }
+    }
   }
 }
 
