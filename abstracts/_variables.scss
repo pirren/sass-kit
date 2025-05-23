@@ -48,10 +48,13 @@ $breakpoints: (
   'xl': 75em  // ~1200px
 );
 
-// Spacing & Radiuses
-$default-spacer: 1rem;
-$-spacing-multipliers: 0, 0.25, 0.5, 1, 1.5;
-$-radius-multipliers: 0, 0.125, 0.25, 0.375, 0.5, 1;
+// Shadows
+$shadows: (
+  0: none, 
+  1: 0 .125rem .25rem rgba(black, .075),
+  2: 0 .5rem 1rem rgba(black, .15), 
+  3: 0 1rem 3rem rgba(black, .175)
+);
 
 // Size percentages
 $size-percentages: (
@@ -61,6 +64,11 @@ $size-percentages: (
   75: 75%, 
   100: 100%
 );
+
+// Spacing & Radiuses
+$default-spacer: 1rem;
+$-spacing-multipliers: 0, 0.25, 0.5, 1, 1.5;
+$-radius-multipliers: 0, 0.125, 0.25, 0.375, 0.5, 1;
 
 // Do not change
 $spacers: scale-to-map($-spacing-multipliers, $default-spacer);

@@ -43,6 +43,13 @@ $util-classes:
     class: d,
     values: inline inline-block block grid table table-row table-cell flex inline-flex none
   ),
+  // shadow utils
+  "box-shadow": (
+    responsive: true,
+    property: box-shadow,
+    class: shadow,
+    values: $shadows
+  ),
   // padding utils
   "padding": (
     responsive: true,
