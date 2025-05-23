@@ -24,8 +24,9 @@ $colors: (
   'whitesmoke': $color-whitesmoke
 );
 
-// Typography, and font stacks
+// Typography and font stacks
 $default-font-size: 1rem;
+$font-weights: (100, 200, 300, 400, 500, 600, 700, 800, 900);
 $heading-scale: (
   h1: 3,
   h2: 2,

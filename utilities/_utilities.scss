@@ -30,6 +30,12 @@ $util-classes:
     class: bg,
     values: $colors
   ),
+  // typography
+  "font-weight": (
+    property: font-weight,
+    class: fw,
+    values: $font-weights
+  ),
   // display utils
   "display": (
     responsive: true,
