@@ -10,12 +10,15 @@
 //  $base: 1rem;
 //  @return: (1: 0.1rem, 2: 0.2rem, 3: 0.3rem, ...) 
 @function scale-to-map($multipliers, $base) {
-  $result: ();
-  @for $i from 1 through list.length($multipliers) {
-    $value: list.nth($multipliers, $i) * $base;
-    $result: map.set($result, $i - 1, $value);
-  }
-  @return $result;
+  $result: (
+  );
+
+@for $i from 1 through list.length($multipliers) {
+  $value: list.nth($multipliers, $i) * $base;
+  $result: map.set($result, $i - 1, $value);
+}
+
+@return $result;
 }
 
 // Convert: List to map
@@ -23,14 +26,18 @@
 //  $list: a b;
 //  @return: (a: a, b: b);
 @function list-to-map($list) {
-  $out: ();
-  @each $item in $list {
-    $out: map.set($out, $item, $item);
-  }
-  @return $out;
+  $out: (
+  );
+
+@each $item in $list {
+  $out: map.set($out, $item, $item);
+}
+
+@return $out;
 }
 
 // Get light or dark based on calculating a colors relative luminance or perceived brightness (YIQ formula)
+// Example:
 //   $color: color to test
 //   $dark: optional color to return as dark
 //   $light: optional color to return as light
@@ -43,5 +50,17 @@
   // YIQ formula for brightness
   $yiq: calc((($r * 299) + ($g * 587) + ($b * 114)) / 1000);
 
-  @return if($yiq >= 128, $dark, $light);
+  @return if($yiq >=128, $dark, $light);
+}
+
+// Get the color scale based off a base color (100, 300, 500(identity anchor), 700, 900)
+// Example:
+//   $color: base color
+//   @return: () color scale map
+@function color-scale($base-color) {
+  @return (100: color.scale($base-color, $lightness: +45%),
+    300: color.scale($base-color, $lightness: +25%),
+    500: $base-color,
+    700: color.scale($base-color, $lightness: -15%),
+    900: color.scale($base-color, $lightness: -35%));
 }

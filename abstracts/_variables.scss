@@ -6,15 +6,15 @@
 $debug-color-contrast: false;
 
 // Individual color tokens
-$color-primary:     #4E8098;
-$color-secondary:   #FAF9F6;
-$color-accent:      #F76C5E;
-$color-highlight:   #FFE66D; 
-$color-dark:        #3D3D3D;
-$color-muted:       #858585;
-$color-whitesmoke:  #F4F7F5;
+$color-primary: #4E8098;
+$color-secondary: #FAF9F6;
+$color-accent: #F76C5E;
+$color-highlight: #FFE66D;
+$color-dark: #3D3D3D;
+$color-muted: #858585;
+$color-whitesmoke: #F4F7F5;
 
-$colors: (
+$brand-colors: (
   'primary': $color-primary,
   'secondary': $color-secondary,
   'accent': $color-accent,
@@ -24,9 +24,33 @@ $colors: (
   'whitesmoke': $color-whitesmoke
 );
 
+$colors: $brand-colors;
+
+@each $name, $color in $brand-colors {
+
+  // Only generate scales for chosen roles
+  @if index(('primary', 'accent', 'highlight'), $name) {
+    $scale: color-scale($color);
+
+    @each $step, $value in $scale {
+      $colors: map.merge($colors, ("#{$name}-#{$step}": $value));
+    }
+  }
+}
+
 // Typography and font stacks
 $default-font-size: 1rem;
-$font-weights: (100, 200, 300, 400, 500, 600, 700, 800, 900);
+$font-weights: (
+  100,
+  200,
+  300,
+  400,
+  500,
+  600,
+  700,
+  800,
+  900
+);
 $heading-scale: (
   h1: 3,
   h2: 2,
@@ -41,27 +65,31 @@ $font-body: 'Work Sans', Helvetica, Arial, sans-serif;
 
 // Breakpoints
 $breakpoints: (
-  'xs': 0,    // Mobile-first
-  'sm': 30em, // ~480px
-  'md': 48em, // ~768px
-  'lg': 64em, // ~1024px
-  'xl': 75em  // ~1200px
+  'xs': 0,
+  // Mobile-first
+  'sm': 30em,
+  // ~480px
+  'md': 48em,
+  // ~768px
+  'lg': 64em,
+  // ~1024px
+  'xl': 75em // ~1200px
 );
 
 // Shadows
 $shadows: (
-  0: none, 
+  0: none,
   1: 0 .125rem .25rem rgba(black, .075),
-  2: 0 .5rem 1rem rgba(black, .15), 
+  2: 0 .5rem 1rem rgba(black, .15),
   3: 0 1rem 3rem rgba(black, .175)
 );
 
 // Size percentages
 $size-percentages: (
-  0: 0%, 
-  25: 25%, 
-  50: 50%, 
-  75: 75%, 
+  0: 0%,
+  25: 25%,
+  50: 50%,
+  75: 75%,
   100: 100%
 );
 
