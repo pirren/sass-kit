@@ -1,6 +1,7 @@
 /* abstracts/_variables.scss */
 
 @use 'functions' as *;
+@use 'sass:map';
 
 // Debug & Testing variables
 $debug-color-contrast: false;
