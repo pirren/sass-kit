@@ -2,6 +2,7 @@
 
 @use 'functions' as *;
 @use 'sass:map';
+@use 'sass:list';
 
 // Debug & Testing variables
 $debug-color-contrast: false;
@@ -30,7 +31,7 @@ $colors: $brand-colors;
 @each $name, $color in $brand-colors {
 
   // Only generate scales for chosen roles
-  @if index(('primary', 'accent', 'highlight'), $name) {
+  @if list.index(('primary', 'accent', 'highlight'), $name) !=null {
     $scale: color-scale($color);
 
     @each $step, $value in $scale {

@@ -14,21 +14,29 @@
   $class: map.get($data, 'class');
   $values: map.get($data, 'values');
 
-  @if $class == null { $class: $name; }
+  @if $class ==null {
+    $class: $name;
+  }
 
   // convert any list to a map
-  @if meta.type-of($values) == 'list' {
+  @if meta.type-of($values)=='list' {
     $values: list-to-map($values);
   }
-  @each $valueName, $value in $values {
-    $suffix: if($valueName == null, "", "-#{$valueName}");
 
-    @if $responsive == false or $responsive == null {
+  @each $valueName, $value in $values {
+    $suffix: "";
+
+    @if $valueName !=null {
+      $suffix: "-#{$valueName}";
+    }
+
+    @if $responsive ==false or $responsive ==null {
       .#{$class}#{$suffix} {
         @include -apply-props($property, $value);
       }
     }
-    @if $responsive == true and $isResponsive == true {
+
+    @if $responsive ==true and $isResponsive ==true {
       @each $bp, $bpv in $breakpoints {
         @include respond-to($bp) {
           .#{$bp}\:#{$class}#{$suffix} {
@@ -42,11 +50,13 @@
 
 // Apply props to class
 @mixin -apply-props($prop, $value) {
-  @if meta.type-of($prop) == 'list' {
+  @if meta.type-of($prop)=='list' {
     @each $p in $prop {
       #{$p}: $value !important;
     }
-  } @else {
+  }
+
+  @else {
     #{$prop}: $value !important;
   }
 }

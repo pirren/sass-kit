@@ -50,7 +50,13 @@
   // YIQ formula for brightness
   $yiq: calc((($r * 299) + ($g * 587) + ($b * 114)) / 1000);
 
-  @return if($yiq >=128, $dark, $light);
+  @if $yiq >=128 {
+    @return $dark;
+  }
+
+  @else {
+    @return $light;
+  }
 }
 
 // Get the color scale based off a base color (100, 300, 500(identity anchor), 700, 900)
