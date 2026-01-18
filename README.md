@@ -1,4 +1,4 @@
-# sass-kit
+# dashcss
 
 A modular, scalable and utility-first Sass framework designed for consistent, easy and maintainable UI development. It includes design tokens, mixins, functions and responsive utility class generation. 
 
@@ -36,7 +36,7 @@ Customize any way you see fit. Recommended starting points are variables and uti
 
 ### Adjust variables
 
-Customize by tweaking variables in  `abstracts/_variables.scss`:
+Customize by tweaking variables in  `settings/_variables.scss`:
 ```
 // Change the color palette
 // Set the primary color
@@ -45,7 +45,7 @@ $color-primary: #004d40;
 ...
 
 // Update typography
-$default-font-size: 1rem;
+$font-size-base: 1rem;
 $font-heading: 'Nunito', sans-serif;
 $font-body: 'Work Sans', sans-serif;
 ```

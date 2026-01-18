@@ -1,0 +1,21 @@
+$color-primary: #1F7A6B !default;
+
+$color-body-bg: #f8fcfa !default;
+$color-surface: #ffffff !default;
+$color-body-text: #212925 !default;
+$color-muted: #858585 !default;
+$color-border: #e5e5e5 !default;
+$color-border-hover: #cccccc !default;
+
+$color-accent: #F76C5E !default;
+$color-highlight: #FFE66D !default;
+
+// Link (separate from primary)
+$color-link: #0f5c8c !default; // calm, readable blue-teal
+$color-link-hover: #0b4c74 !default;
+
+// Semantic states (dashcss: slightly muted, high legibility)
+$color-success: #1f7a4b !default; // cooler green, not neon
+$color-info:    #0f5c8c !default; // same family as link is fine
+$color-warning: #b7791f !default; // amber, not yellow
+$color-danger:  #b03a2e !default; // brick red, not candy red

@@ -1,4 +1,5 @@
 /* main.scss */
+@forward 'settings';
 
 // base
 @use 'base/root-vars';
@@ -9,9 +10,12 @@
 
 // layout
 @use 'layout/container';
+@use 'layout/columns';
 
 // components
 @use 'components/buttons';
+@use 'components/titles';
+@use 'components/card';
 
 // utilities
 @use 'utilities/utilities';

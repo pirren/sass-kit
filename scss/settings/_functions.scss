@@ -1,8 +1,9 @@
-/* abstracts/_functions.scss */
+/* settings/_functions.scss */
 
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:color';
+@use 'sass:math';
 
 // Convert: Scale to map
 // Example:
@@ -10,15 +11,14 @@
 //  $base: 1rem;
 //  @return: (1: 0.1rem, 2: 0.2rem, 3: 0.3rem, ...) 
 @function scale-to-map($multipliers, $base) {
-  $result: (
-  );
+  $result: ();
 
-@for $i from 1 through list.length($multipliers) {
-  $value: list.nth($multipliers, $i) * $base;
-  $result: map.set($result, $i - 1, $value);
-}
+  @for $i from 1 through list.length($multipliers) {
+    $value: list.nth($multipliers, $i) * $base;
+    $result: map.set($result, $i - 1, $value);
+  }
 
-@return $result;
+  @return $result;
 }
 
 // Convert: List to map
@@ -26,14 +26,13 @@
 //  $list: a b;
 //  @return: (a: a, b: b);
 @function list-to-map($list) {
-  $out: (
-  );
+  $out: ();
 
-@each $item in $list {
-  $out: map.set($out, $item, $item);
-}
+  @each $item in $list {
+    $out: map.set($out, $item, $item);
+  }
 
-@return $out;
+  @return $out;
 }
 
 // Get light or dark based on calculating a colors relative luminance or perceived brightness (YIQ formula)
@@ -64,9 +63,19 @@
 //   $color: base color
 //   @return: () color scale map
 @function color-scale($base-color) {
-  @return (100: color.scale($base-color, $lightness: +45%),
-    300: color.scale($base-color, $lightness: +25%),
-    500: $base-color,
-    700: color.scale($base-color, $lightness: -15%),
-    900: color.scale($base-color, $lightness: -35%));
+  @return (
+    100: -round-color(color.scale($base-color, $lightness: +45%)),
+    300: -round-color(color.scale($base-color, $lightness: +25%)),
+    500: -round-color($base-color),
+    700: -round-color(color.scale($base-color, $lightness: -15%)),
+    900: -round-color(color.scale($base-color, $lightness: -35%))
+  );
+}
+
+@function -round-color($c) {
+  @return rgb(
+    math.round(color.channel($c, "red", $space: rgb)),
+    math.round(color.channel($c, "green", $space: rgb)),
+    math.round(color.channel($c, "blue", $space: rgb))
+  );
 }

@@ -1,0 +1,48 @@
+/* base/_root-vars.scss */
+
+@use "sass:map";
+@use "sass:color";
+
+@use "../settings" as s;
+@use "../settings/tokens" as t;
+
+// Root vars: Public runtime token surface
+
+:root {
+  /* colors */
+  @each $name, $c in t.$colors {
+    --color-#{$name}: #{$c};
+  }
+  --color-white: #fff;
+  --color-border: #{s.$color-border};
+  --color-border-hover: #{s.$color-border-hover};
+  --color-link: #{s.$color-link};
+  --color-link-hover: #{s.$color-link-hover};
+
+  --color-success: #{s.$color-success};
+  --color-info: #{s.$color-info};
+  --color-warning: #{s.$color-warning};
+  --color-danger: #{s.$color-danger};
+
+  /* typography */
+  --font-body: #{s.$font-body};
+  --font-heading: #{s.$font-heading};
+  --font-size-base: #{s.$font-size-base};
+
+  /* spacing scale */
+  @each $step, $val in t.$spacers {
+    --space-#{$step}: #{$val};
+  }
+
+  /* radius scale */
+  @each $step, $val in t.$radiuses {
+    --radius-#{$step}: #{$val};
+  }
+
+  /* shadows */
+  @each $step, $val in s.$shadows {
+    --shadow-#{$step}: #{$val};
+  }
+
+  --column-gap: #{s.$column-gap};
+}

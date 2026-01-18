@@ -1,9 +1,11 @@
 /* utilities/_utilities.scss */
 
-@use '../abstracts/mixins' as *;
-@use '../abstracts/variables' as *;
 @use 'sass:list';
 @use 'sass:map';
+
+@use '../settings' as s;
+@use '../settings/tokens' as t;
+@use '../settings/mixins' as m;
 
 $util-classes: 
 (
@@ -12,35 +14,45 @@ $util-classes:
     responsive: true,
     property: width,
     class: w,
-    values: $size-percentages
+    values: s.$size-percentages
   ),
   "max-width": (
     responsive: true,
     property: max-width,
     class: mw,
-    values: $size-percentages
+    values: s.$size-percentages
   ),
   "height": (
     responsive: true,
     property: height,
     class: h,
-    values: $size-percentages
+    values: s.$size-percentages
   ),
   // color utils
   "text": (
     property: color,
-    values: $colors
+    values: t.$colors
   ),
   "background": (
     property: background-color,
     class: bg,
-    values: $colors
+    values: t.$colors
   ),
   // typography
   "font-weight": (
     property: font-weight,
     class: fw,
-    values: $font-weights
+    values: s.$font-weights
+  ),
+  "text-align": (
+    responsive: true,
+    property: text-align,
+    class: text,
+    values: (
+      left: left,
+      right: right,
+      center: center,
+    )
   ),
   // display utils
   "display": (
@@ -54,145 +66,145 @@ $util-classes:
     responsive: true,
     property: box-shadow,
     class: shadow,
-    values: $shadows
+    values: s.$shadows
   ),
   // padding utils
   "padding": (
     responsive: true,
     property: padding,
     class: p,
-    values: $spacers
+    values: t.$spacers
   ),
   "padding-x": (
     responsive: true,
     property: padding-right padding-left,
     class: px,
-    values: $spacers
+    values: t.$spacers
   ),
   "padding-y": (
     responsive: true,
     property: padding-top padding-bottom,
     class: py,
-    values: $spacers
+    values: t.$spacers
   ),
   "padding-top": (
     responsive: true,
     property: padding-top,
     class: pt,
-    values: $spacers
+    values: t.$spacers
   ),
   "padding-right": (
     responsive: true,
     property: padding-right,
     class: pr,
-    values: $spacers
+    values: t.$spacers
   ),
   "padding-bottom": (
     responsive: true,
     property: padding-bottom,
     class: pb,
-    values: $spacers
+    values: t.$spacers
   ),
   "padding-left": (
     responsive: true,
     property: padding-left,
     class: pl,
-    values: $spacers
+    values: t.$spacers
   ),
   // margin utils
   "margin": (
     responsive: true,
     property: margin,
     class: m,
-    values: map.merge($spacers, (auto: auto))
+    values: map.merge(t.$spacers, (auto: auto))
   ),
   "margin-x": (
     responsive: true,
     property: margin-right margin-left,
     class: mx,
-    values: map.merge($spacers, (auto: auto))
+    values: map.merge(t.$spacers, (auto: auto))
   ),
   "margin-y": (
     responsive: true,
     property: margin-top margin-bottom,
     class: my,
-    values: map.merge($spacers, (auto: auto))
+    values: map.merge(t.$spacers, (auto: auto))
   ),
   "margin-top": (
     responsive: true,
     property: margin-top,
     class: mt,
-    values: map.merge($spacers, (auto: auto))
+    values: map.merge(t.$spacers, (auto: auto))
   ),
   "margin-right": (
     responsive: true,
     property: margin-right,
     class: mr,
-    values: map.merge($spacers, (auto: auto))
+    values: map.merge(t.$spacers, (auto: auto))
   ),
   "margin-bottom": (
     responsive: true,
     property: margin-bottom,
     class: mb,
-    values: map.merge($spacers, (auto: auto))
+    values: map.merge(t.$spacers, (auto: auto))
   ),
   "margin-left": (
     responsive: true,
     property: margin-left,
     class: ml,
-    values: map.merge($spacers, (auto: auto))
+    values: map.merge(t.$spacers, (auto: auto))
   ),
   // gap utils
   "gap": (
     responsive: true,
     property: gap,
     class: gap,
-    values: $spacers
+    values: t.$spacers
   ),
   "row-gap": (
     responsive: true,
     property: row-gap,
     class: row-gap,
-    values: $spacers
+    values: t.$spacers
   ),
   "column-gap": (
     responsive: true,
     property: column-gap,
     class: column-gap,
-    values: $spacers
+    values: t.$spacers
   ),
   // rounded utils
   "rounded": (
     property: border-radius,
     class: rounded,
-    values: $radiuses
+    values: t.$radiuses
   ),
   "rounded-top": (
     property: border-top-left-radius border-top-right-radius,
     class: rounded-top,
-    values: $radiuses
+    values: t.$radiuses
   ),
   "rounded-right": (
     property: border-top-right-radius border-bottom-right-radius,
     class: rounded-right,
-    values: $radiuses
+    values: t.$radiuses
   ),
   "rounded-bottom": (
     property: border-bottom-left-radius border-bottom-right-radius,
     class: rounded-bottom,
-    values: $radiuses
+    values: t.$radiuses
   ),
   "rounded-left": (
     property: border-top-left-radius border-bottom-left-radius,
     class: rounded-left,
-    values: $radiuses
+    values: t.$radiuses
   ),
   // border utils
   "border": (
     responsive: true,
     property: border,
     values: (
-      null: 1px solid #222,
+      null: 1px solid s.$color-border,
       0: 0
     )
   ),
@@ -200,7 +212,7 @@ $util-classes:
     responsive: true,
     property: border-top,
     values: (
-      null: 1px solid #222,
+      null: 1px solid s.$color-border,
       0: 0
     )
   ),
@@ -208,7 +220,7 @@ $util-classes:
     responsive: true,
     property: border-right,
     values: (
-      null: 1px solid #222,
+      null: 1px solid s.$color-border,
       0: 0
     )
   ),
@@ -216,7 +228,7 @@ $util-classes:
     responsive: true,
     property: border-bottom,
     values: (
-      null: 1px solid #222,
+      null: 1px solid s.$color-border,
       0: 0
     )
   ),
@@ -224,14 +236,14 @@ $util-classes:
     responsive: true,
     property: border-left,
     values: (
-      null: 1px solid #222,
+      null: 1px solid s.$color-border,
       0: 0
     )
   ),
   "border-color": (
     property: border-color,
     class: border,
-    values: $colors
+    values: t.$colors
   ),
   // flexbox utils
   "flex": (
@@ -334,10 +346,10 @@ $util-classes:
 
 // Generate base classes
 @each $name, $data in $util-classes {
-  @include generate-util-class($name, $data, $responsive: false);
+  @include m.generate-util-class($name, $data, $responsive: false);
 }
 
 // Generate responsive classes after base classes so that they will take prio
 @each $name, $data in $util-classes {
-  @include generate-util-class($name, $data, $responsive: true);
+  @include m.generate-util-class($name, $data, $responsive: true);
 }
