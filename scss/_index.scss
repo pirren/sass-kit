@@ -1,12 +1,13 @@
-/* main.scss */
+/* _index.scss */
 @forward 'settings';
 
 // base
-@use 'base/root-vars';
-@use 'base/reset';
 @use 'base/base';
-@use 'base/typography';
+@use 'base/code';
 @use 'base/headings';
+@use 'base/reset';
+@use 'base/root-vars';
+@use 'base/typography';
 
 // layout
 @use 'layout/container';

@@ -8,13 +8,9 @@
 
 html {
   font-size: var(--font-size-base);
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background-color: var(--color-body-bg);
   color: var(--color-body-text);
-  text-rendering: optimizeLegibility; // helps kerning/ligatures in some browsers
-  -webkit-font-smoothing: antialiased; // mostly macOS
-  -moz-osx-font-smoothing: grayscale;  // macOS Firefox
 }

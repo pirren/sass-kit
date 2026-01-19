@@ -6,18 +6,39 @@
 @use "../settings" as s;
 @use "../settings/tokens" as t;
 
-// Root vars: Public runtime token surface
+@function rgb-triplet($c) {
+  @return "#{color.channel($c, "red", $space: rgb)}, #{color.channel($c, "green", $space: rgb)}, #{color.channel($c, "blue", $space: rgb)}";
+}
 
+// Root vars: Public runtime token surface
 :root {
   /* colors */
-  @each $name, $c in t.$colors {
-    --color-#{$name}: #{$c};
+  @each $name, $value in t.$colors {
+    --color-#{$name}: #{$value};
+
+    // Only generate rgb triplets for actual colors (skip nulls if any)
+    @if $value != null {
+      --color-#{$name}-rgb: #{rgb-triplet($value)};
+    }
   }
-  --color-white: #fff;
+
+  --color-muted: #{s.$color-muted};
+  --color-muted-rgb:  #{rgb-triplet(s.$color-muted)};
+
+  --color-body-bg: #{s.$color-body-bg};
+  --color-body-bg-rgb: #{rgb-triplet(s.$color-body-bg)};
+  --color-body-text: #{s.$color-body-text};
+  --color-body-text-rgb: #{rgb-triplet(s.$color-body-text)};
+
   --color-border: #{s.$color-border};
+  --color-border-rgb: #{rgb-triplet(s.$color-border)};
   --color-border-hover: #{s.$color-border-hover};
+  --color-border-hover-rgb: #{rgb-triplet(s.$color-border-hover)};
+
   --color-link: #{s.$color-link};
+  --color-link-rgb: #{s.$color-link};
   --color-link-hover: #{s.$color-link-hover};
+  --color-link-hover-rgb: #{s.$color-link-hover};
 
   --color-success: #{s.$color-success};
   --color-info: #{s.$color-info};
@@ -27,6 +48,7 @@
   /* typography */
   --font-body: #{s.$font-body};
   --font-heading: #{s.$font-heading};
+  --font-monospace: #{s.$font-monospace};
   --font-size-base: #{s.$font-size-base};
 
   /* spacing scale */
