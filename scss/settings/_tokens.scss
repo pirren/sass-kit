@@ -10,7 +10,8 @@
 $brand-colors: (
   "primary": c.$color-primary,
   "accent": c.$color-accent,
-  "highlight": c.$color-highlight
+  "highlight": c.$color-highlight,
+  "link": c.$color-link
 );
 
 // 2) Full colors map (brand colors + generated scales)

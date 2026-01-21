@@ -55,7 +55,7 @@
 
   padding: calc(var(--space-2) - 1px) var(--space-4);
 
-  &:hover:not([class~="btn--primary"]):not([class~="btn--secondary"]):not([class~="btn--accent"]):not([class~="btn--highlight"]):not([class~="btn--quiet"]) {
+  &:hover:not([class~="btn--primary"]):not([class~="btn--secondary"]):not([class~="btn--accent"]):not([class~="btn--highlight"]):not([class~="btn--quiet"]):not([class~="btn--link"]) {
     $hover-color: color.mix(#000, #fff, 8%);
     background-color: $hover-color;
     border-color: var(--color-border-hover);
@@ -82,6 +82,7 @@
   @include generate-buttons($only: ('secondary'), $mix: black);
   @include generate-buttons($only: ('accent'), $mix: white);
   @include generate-buttons($only: ('highlight'), $mix: white);
+  @include generate-buttons($only: ('link'), $mix: black);
 
   &--quiet {
     background-color: transparent;
