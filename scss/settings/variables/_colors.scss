@@ -1,4 +1,4 @@
-$color-primary: #1f7a5c !default;
+$color-primary: #1f7a5c !default; // Jungle Teal
 
 $color-body-bg: #ffffff !default;
 $color-surface: #ffffff !default;
@@ -8,11 +8,11 @@ $color-border: #e5e5e5 !default;
 $color-border-hover: #cccccc !default;
 
 $color-accent: #F76C5E !default;
-$color-highlight: #FFE66D !default;
+$color-highlight: #001021 !default;
 
 // Link (separate from primary)
-$color-link: #0f5c8c !default; // calm, readable blue-teal
-$color-link-hover: #0b4c74 !default;
+$color-link: #001021 !default; // Ink Black
+$color-link-hover: #1481BA !default; // Ocean Blue
 
 // Semantic states (dashcss: slightly muted, high legibility)
 $color-success: #1f7a4b !default; // cooler green, not neon
