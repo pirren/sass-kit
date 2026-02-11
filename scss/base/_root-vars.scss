@@ -4,7 +4,6 @@
 @use "sass:color";
 
 @use "../settings" as s;
-@use "../settings/tokens" as t;
 
 @function rgb-triplet($c) {
   @return "#{color.channel($c, "red", $space: rgb)}, #{color.channel($c, "green", $space: rgb)}, #{color.channel($c, "blue", $space: rgb)}";
@@ -13,7 +12,7 @@
 // Root vars: Public runtime token surface
 :root {
   /* colors */
-  @each $name, $value in t.$colors {
+  @each $name, $value in s.$colors {
     --color-#{$name}: #{$value};
 
     // Only generate rgb triplets for actual colors (skip nulls if any)
@@ -52,12 +51,12 @@
   --font-size-base: #{s.$font-size-base};
 
   /* spacing scale */
-  @each $step, $val in t.$spacers {
+  @each $step, $val in s.$spacers {
     --space-#{$step}: #{$val};
   }
 
   /* radius scale */
-  @each $step, $val in t.$radiuses {
+  @each $step, $val in s.$radiuses {
     --radius-#{$step}: #{$val};
   }
 

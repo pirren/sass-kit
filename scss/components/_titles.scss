@@ -7,7 +7,7 @@
 @mixin type-scale($prefix, $scale) {
   @each $step, $mult in $scale {
     &--#{$step} {
-      font-size: calc(#{s.$font-size-base} * #{$mult});
+      font-size: calc(var(--font-size-base) * #{$mult});
     }
   }
 }
