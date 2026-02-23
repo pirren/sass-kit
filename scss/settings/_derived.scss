@@ -36,7 +36,9 @@ $semantic-colors: (
   "success": c.$color-success,
   "info": c.$color-info,
   "warning": c.$color-warning,
-  "danger": c.$color-danger
+  "danger": c.$color-danger,
+  "white": c.$color-fill-white,
+  "black": c.$color-fill-black
 ) !default;
 
 // Full colors map = brand + semantic + generated scales

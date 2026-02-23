@@ -35,14 +35,17 @@
   --color-border-hover-rgb: #{rgb-triplet(s.$color-border-hover)};
 
   --color-link: #{s.$color-link};
-  --color-link-rgb: #{s.$color-link};
+  --color-link-rgb: #{rgb-triplet(s.$color-link)};
   --color-link-hover: #{s.$color-link-hover};
-  --color-link-hover-rgb: #{s.$color-link-hover};
+  --color-link-hover-rgb: #{rgb-triplet(s.$color-link-hover)};
 
   --color-success: #{s.$color-success};
   --color-info: #{s.$color-info};
   --color-warning: #{s.$color-warning};
   --color-danger: #{s.$color-danger};
+
+  --color-white: #{s.$color-fill-white};
+  --color-black: #{s.$color-fill-black};
 
   /* typography */
   --font-body: #{s.$font-body};
@@ -66,4 +69,7 @@
   }
 
   --column-gap: #{s.$column-gap};
+
+  /* buttons */
+  --button-border-radius: #{s.$button-border-radius};
 }
