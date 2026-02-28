@@ -52,6 +52,9 @@
   --font-heading: #{s.$font-heading};
   --font-monospace: #{s.$font-monospace};
   --font-size-base: #{s.$font-size-base};
+  @each $val in s.$font-weights {
+    --font-weight-#{$val}: #{$val};
+  }
 
   /* spacing scale */
   @each $step, $val in s.$spacers {
@@ -72,4 +75,12 @@
 
   /* buttons */
   --button-border-radius: #{s.$button-border-radius};
+
+  /* fields */
+  --field-block-spacer: #{s.$field-block-spacer};
+  --label-block-spacer: #{s.$label-block-spacer};
+  --input-radius: #{s.$input-radius};
+  --input-focus-shadow-size: #{s.$input-focus-shadow-size};
+  --input-padding-vertical: #{s.$input-padding-vertical};
+  --input-padding-horizontal: #{s.$input-padding-horizontal};
 }

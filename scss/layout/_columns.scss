@@ -19,7 +19,11 @@ $sizes: ("20": 20, "25": 25, "33": 33, "40": 40, "50": 50, "60": 60, "66": 66, "
     flex-basis: 0;
     flex-grow: 1;
     flex-shrink: 1;
-    padding: var(--column-gap);
+    padding-inline: var(--column-gap);
+
+    .column__label {
+      // padding-block: 
+    }
 
     @each $name, $value in $sizes {
       &--#{$name} {

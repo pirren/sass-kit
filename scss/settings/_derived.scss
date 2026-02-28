@@ -7,7 +7,7 @@
 @use './variables/spacing' as s;
 @use './variables/radius' as r;
 @use './variables/shadows' as sh;
-
+@use './variables/typography' as t;
 
 // --------------------------------------------------
 // Derived color maps
@@ -60,6 +60,10 @@ $colors: map.merge($brand-colors, $semantic-colors);
 $spacers: f.scale-to-map(s.$spacing-multipliers, s.$default-spacer);
 $radiuses: f.scale-to-map(r.$radius-multipliers, r.$radius-base);
 
+// // --------------------------------------------------
+// // Derived Typography
+// // --------------------------------------------------
+// $font-weights-map: f.list-to-map(t.$font-weights);
 
 // --------------------------------------------------
 // CSS var mirror maps - Public runtime token surface

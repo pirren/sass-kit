@@ -27,6 +27,37 @@ $util-classes:
     class: h,
     values: s.$size-percentages
   ),
+  "min-height": (
+    responsive: true,
+    property: min-height,
+    class: min-h,
+    values: ('screen': 100vh)
+  ),
+  // position utils
+  "top": (
+    responsive: true,
+    property: top,
+    class: top,
+    values: ('0': 0, '50': 50%, '100': 100%)
+  ),
+  "right": (
+    responsive: true,
+    property: right,
+    class: right,
+    values: ('0': 0, '50': 50%, '100': 100%)
+  ),
+  "bottom": (
+    responsive: true,
+    property: bottom,
+    class: bottom,
+    values: ('0': 0, '50': 50%, '100': 100%)
+  ),
+  "left": (
+    responsive: true,
+    property: left,
+    class: left,
+    values: ('0': 0, '50': 50%, '100': 100%)
+  ),
   // color utils
   "text": (
     property: color,
