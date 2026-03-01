@@ -20,7 +20,7 @@ $color-scale-roles: ("primary", "secondary", "accent", "gray") !default;
 // Roles that should receive very-light surface/fill variants
 $color-surface-roles: ("primary", "secondary", "accent", "link") !default;
 
-// Optional: include semantic states in the master map too (no scales)
+// Master color map
 $colors: (
   "primary": c.$color-primary,
   "secondary": c.$color-secondary,
@@ -42,17 +42,7 @@ $colors: (
   "off-white": c.$color-fill-off-white
 ) !default;
 
-// Full colors map = brand + semantic + generated scales
-$surface-colors: ();
-
-@each $name, $value in $colors {
-  @if list.index($color-surface-roles, $name) != null {
-    $surface-colors: map.merge($surface-colors, ("#{$name}-surface": f.surface-color($value, c.$color-surface-strength)));
-  }
-}
-
-$colors: map.merge($colors, $surface-colors);
-
+// Generate scales for roles that need them, and merge back into master map
 @each $name, $value in $colors {
   @if list.index($color-scale-roles, $name) != null {
     $scale: f.color-scale($value);
@@ -63,15 +53,28 @@ $colors: map.merge($colors, $surface-colors);
   }
 }
 
+// Generate surface variants for roles that need them, and merge back into master map
+$surface-colors: ();
+
+@each $name, $value in $colors {
+  @if list.index($color-surface-roles, $name) != null {
+    $surface-colors: map.merge($surface-colors, ("#{$name}-surface": f.surface-color($value, c.$color-surface-strength)));
+  }
+}
+
+$colors: map.merge($colors, $surface-colors);
+
 // --------------------------------------------------
 // Derived Spacing + radius maps
 // --------------------------------------------------
+
 $spacers: f.scale-to-map(s.$spacing-multipliers, s.$default-spacer);
 $radiuses: f.scale-to-map(r.$radius-multipliers, r.$radius-base);
 
 // --------------------------------------------------
 // CSS var mirror maps - Public runtime token surface
 // --------------------------------------------------
+
 @function css-var-map($m, $prefix) {
   $out: ();
   @each $name, $value in $m {
@@ -80,7 +83,6 @@ $radiuses: f.scale-to-map(r.$radius-multipliers, r.$radius-base);
   @return $out;
 }
 
-// This is the one utilities should consume:
 $colors-css: css-var-map($colors, "color");
 $spacers-css: css-var-map($spacers, "space");
 $spacers-css-auto: css-var-map(map.merge($spacers, (auto: auto)), "space");
