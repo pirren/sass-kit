@@ -1,7 +1,8 @@
+// settings/_derived.scss
+
 @use 'sass:map';
 @use 'sass:string';
 @use 'sass:list';
-
 @use 'functions' as f;
 @use './variables/colors' as c;
 @use './variables/spacing' as s;
@@ -18,14 +19,6 @@ $color-scale-roles: ("primary", "secondary", "accent", "gray") !default;
 
 // Roles that should receive very-light surface/fill variants
 $color-surface-roles: ("primary", "secondary", "accent", "link") !default;
-
-// // Brand role map (base roles)
-// $brand-colors: (
-//   "primary": c.$color-primary,
-//   "secondary": c.$color-secondary,
-//   "accent": c.$color-accent,
-//   "link": c.$color-link
-// ) !default;
 
 // Optional: include semantic states in the master map too (no scales)
 $colors: (

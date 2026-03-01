@@ -2,10 +2,8 @@
 
 @use 'sass:meta';
 @use 'sass:map';
-
 @use '../' as s;
 
-// Media breakpoints
 @mixin respond-to($breakpoint) {
   $value: null;
   $type: meta.type-of($breakpoint);

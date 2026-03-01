@@ -2,7 +2,6 @@
 
 @use "sass:map";
 @use "sass:color";
-
 @use "../settings" as s;
 
 @function rgb-triplet($c) {

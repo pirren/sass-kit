@@ -1,7 +1,6 @@
 /* components/_titles.scss */
 
 @use 'sass:map';
-
 @use '../settings' as s;
 
 @mixin type-scale($prefix, $scale) {
