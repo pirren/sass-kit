@@ -21,8 +21,8 @@
     }
   }
 
-  --color-muted: #{s.$color-muted};
-  --color-muted-rgb:  #{rgb-triplet(s.$color-muted)};
+  --color-gray: #{s.$color-gray};
+  --color-gray-rgb:  #{rgb-triplet(s.$color-gray)};
 
   --color-body-bg: #{s.$color-body-bg};
   --color-body-bg-rgb: #{rgb-triplet(s.$color-body-bg)};
@@ -55,6 +55,13 @@
   @each $val in s.$font-weights {
     --font-weight-#{$val}: #{$val};
   }
+  @each $name, $val in s.$font-sizes {
+    --font-size-#{$name}: #{$val};
+  }
+
+  /* transition */
+  --transition-function-base: #{s.$cubic-bezier-base};
+  --transition-time-base: #{s.$transition-time-base};
 
   /* spacing scale */
   @each $step, $val in s.$spacers {

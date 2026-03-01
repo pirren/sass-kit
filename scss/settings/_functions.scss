@@ -72,6 +72,12 @@
   );
 }
 
+// Generate a very light surface/fill color from any base color.
+// Higher $strength = lighter result (because more white is mixed in).
+@function surface-color($base-color, $strength: 88%, $mix-color: #fff) {
+  @return -round-color(color.mix($mix-color, $base-color, $strength));
+}
+
 @function -round-color($c) {
   @return rgb(
     math.round(color.channel($c, "red", $space: rgb)),

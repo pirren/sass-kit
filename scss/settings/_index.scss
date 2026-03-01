@@ -1,9 +1,10 @@
-@forward "variables/colors";
-@forward "variables/spacing";
-@forward "variables/radius";
-@forward "variables/typography";
 @forward "variables/breakpoints";
+@forward "variables/colors";
+@forward "variables/debug";
+@forward "variables/radius";
 @forward "variables/shadows";
 @forward "variables/sizing";
-@forward "variables/debug";
+@forward "variables/spacing";
+@forward "variables/transition";
+@forward "variables/typography";
 @forward "derived";

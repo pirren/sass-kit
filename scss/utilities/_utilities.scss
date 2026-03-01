@@ -33,7 +33,13 @@ $util-classes:
     class: min-h,
     values: ('screen': 100vh)
   ),
-  // position utils
+  // positioning utils
+  "position": (
+    responsive: true,
+    property: position,
+    class: position,
+    values: static relative absolute fixed sticky
+  ),
   "top": (
     responsive: true,
     property: top,
@@ -70,6 +76,12 @@ $util-classes:
     values: s.$colors-css
   ),
   // typography
+  "font-size": (
+    responsive: true,
+    property: font-size,
+    class: font-size,
+    values: s.$font-sizes
+  ),
   "font-weight": (
     property: font-weight,
     class: fw,
@@ -293,8 +305,8 @@ $util-classes:
     property: flex-grow,
     class: flex,
     values: (
-      grow-0: 0,
-      grow-1: 1,
+      0: 0,
+      1: 1,
     )
   ),
   "flex-shrink": (
@@ -315,6 +327,7 @@ $util-classes:
   "justify-content": (
     responsive: true,
     property: justify-content,
+    class: justify,
     values: (
       start: flex-start,
       end: flex-end,
@@ -327,6 +340,7 @@ $util-classes:
   "align-items": (
     responsive: true,
     property: align-items,
+    class: align,
     values: (
       start: flex-start,
       end: flex-end,

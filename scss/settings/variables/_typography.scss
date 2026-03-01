@@ -1,5 +1,20 @@
+/* settings/variables/_typography.scss */ 
+
 // Typography and font stacks
 $font-size-base: 1rem !default;
+$font-sizes: (
+  xs: 0.75rem,
+  sm: 0.875rem,
+  base: $font-size-base,
+  lg: 1.125rem,
+  xl: 1.25rem,
+  "2xl": 1.5rem,
+  "3xl": 1.875rem,
+  "4xl": 2.25rem,
+  "5xl": 3rem,
+  "6xl": 3.75rem
+) !default;
+
 $font-weights: (
   100,
   200,

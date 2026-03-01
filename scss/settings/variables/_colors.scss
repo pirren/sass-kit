@@ -1,11 +1,10 @@
 $color-primary: #1f7a5c !default;
-$color-secondary: #333333 !default;
+$color-secondary: #434849 !default;
 $color-accent: #643173 !default;
 
 $color-body-bg: #ffffff !default;
-$color-surface: #ffffff !default;
 $color-body-text: #212925 !default;
-$color-muted: #858585 !default;
+$color-gray: #858585 !default;
 $color-border: #dbdddd !default;
 $color-border-hover: #cccccc !default;
 
@@ -19,3 +18,7 @@ $color-danger:  #b03a2e !default;
 
 $color-fill-white: #fff;
 $color-fill-black: #000;
+$color-fill-off-white: #f2f4f7 !default;
+
+$color-surface: #ffffff !default;
+$color-surface-strength: 88% !default;
