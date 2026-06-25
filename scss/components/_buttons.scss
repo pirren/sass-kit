@@ -62,7 +62,9 @@
   border-radius: var(--button-border-radius);
 
   cursor: pointer;
-  transition: background-color 200ms ease-in-out, color 200ms ease-in-out, border-color 200ms ease-in-out;
+  transition: background-color var(--transition-time-base) var(--transition-function-base), 
+    color var(--transition-time-base) var(--transition-function-base), 
+    border-color var(--transition-time-base) var(--transition-function-base);
 
   &:hover:not([class~="btn--primary"]):not([class~="btn--secondary"]):not([class~="btn--accent"]):not([class~="btn--highlight"]):not([class~="btn--quiet"]):not([class~="btn--link"]) {
     $hover-color: color.mix(#000, #fff, 8%);
@@ -89,11 +91,11 @@
     color: inherit;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.06);
+      background-color: var(--color-secondary-surface);
     }
 
     &:active {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: var(--color-secondary-surface);
     }
 
     &:focus-visible {
