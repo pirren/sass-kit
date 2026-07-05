@@ -4,7 +4,7 @@
 // Padding is included by default and can be removed with `--flush` for
 // edge-to-edge content (media, color fills, tables, etc.).
 .card {
-  background: var(--color-white, #fff);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-4);
   padding: var(--space-4);

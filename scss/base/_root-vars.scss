@@ -10,6 +10,8 @@
 
 // Root vars: Public runtime token surface
 :root {
+  color-scheme: light;
+
   /* colors */
   @each $name, $value in s.$colors {
     --color-#{$name}: #{$value};
@@ -22,6 +24,7 @@
 
   --color-gray: #{s.$color-gray};
   --color-gray-rgb:  #{rgb-triplet(s.$color-gray)};
+  --color-muted: #{s.$color-gray};
 
   --color-body-bg: #{s.$color-body-bg};
   --color-body-bg-rgb: #{rgb-triplet(s.$color-body-bg)};
@@ -90,3 +93,74 @@
   --input-padding-vertical: #{s.$input-padding-vertical};
   --input-padding-horizontal: #{s.$input-padding-horizontal};
 }
+
+// --------------------------------------------------
+// Theming — light / dark token overrides
+//
+// Only the neutral/semantic-neutral tokens flip between themes; brand and
+// status hues (primary, accent, success…) stay put so baked-in button text
+// colors remain valid. Surface tints flip to translucent overlays in dark.
+// --------------------------------------------------
+
+// Light values, sourced from the single-source-of-truth color settings so
+// forcing light (`.theme-light`) never drifts from the defaults.
+@mixin theme-light {
+  color-scheme: light;
+
+  --color-body-bg: #{s.$color-body-bg};      --color-body-bg-rgb: #{rgb-triplet(s.$color-body-bg)};
+  --color-body-text: #{s.$color-body-text};  --color-body-text-rgb: #{rgb-triplet(s.$color-body-text)};
+  --color-surface: #{s.$color-surface};
+  --color-off-white: #{s.$color-fill-off-white};
+  --color-gray: #{s.$color-gray};            --color-gray-rgb: #{rgb-triplet(s.$color-gray)};
+  --color-muted: #{s.$color-gray};
+  --color-border: #{s.$color-border};        --color-border-rgb: #{rgb-triplet(s.$color-border)};
+  --color-border-hover: #{s.$color-border-hover}; --color-border-hover-rgb: #{rgb-triplet(s.$color-border-hover)};
+  --color-link: #{s.$color-link};            --color-link-rgb: #{rgb-triplet(s.$color-link)};
+  --color-link-hover: #{s.$color-link-hover}; --color-link-hover-rgb: #{rgb-triplet(s.$color-link-hover)};
+
+  --color-primary-surface: #{map.get(s.$colors, "primary-surface")};
+  --color-secondary-surface: #{map.get(s.$colors, "secondary-surface")};
+  --color-accent-surface: #{map.get(s.$colors, "accent-surface")};
+  --color-link-surface: #{map.get(s.$colors, "link-surface")};
+}
+
+@mixin theme-dark {
+  $bg: #0f1512;       // near-black, faint green undertone (matches brand)
+  $text: #e6ebe8;
+  $surface: #161d19;  // elevated panel
+  $sunken: #1e2621;   // hover / soft fills
+  $muted: #9aa39f;
+  $border: #2b3531;
+  $border-h: #3c4740;
+  $link: #7fa8ff;
+  $link-h: #a9c4ff;
+
+  color-scheme: dark;
+
+  --color-body-bg: #{$bg};            --color-body-bg-rgb: #{rgb-triplet($bg)};
+  --color-body-text: #{$text};        --color-body-text-rgb: #{rgb-triplet($text)};
+  --color-surface: #{$surface};
+  --color-off-white: #{$sunken};
+  --color-gray: #{$muted};            --color-gray-rgb: #{rgb-triplet($muted)};
+  --color-muted: #{$muted};
+  --color-border: #{$border};         --color-border-rgb: #{rgb-triplet($border)};
+  --color-border-hover: #{$border-h}; --color-border-hover-rgb: #{rgb-triplet($border-h)};
+  --color-link: #{$link};             --color-link-rgb: #{rgb-triplet($link)};
+  --color-link-hover: #{$link-h};     --color-link-hover-rgb: #{rgb-triplet($link-h)};
+
+  // Translucent overlays read correctly on any dark surface
+  --color-primary-surface: rgba(var(--color-primary-rgb), 0.20);
+  --color-secondary-surface: rgba(255, 255, 255, 0.07);
+  --color-accent-surface: rgba(var(--color-accent-rgb), 0.20);
+  --color-link-surface: rgba(#{rgb-triplet($link)}, 0.16);
+}
+
+// 1) Follow the OS setting out of the box …
+@media (prefers-color-scheme: dark) {
+  :root { @include theme-dark; }
+}
+
+// 2) … and allow an explicit override via a class on <html> or <body>.
+//    Placed after the media query so an explicit choice always wins.
+.theme-light { @include theme-light; }
+.theme-dark { @include theme-dark; }

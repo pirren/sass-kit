@@ -30,11 +30,24 @@
       background-color: transparent;
       border-color: $bg-color;
       color: $bg-color;
-      
+
       &:hover {
         $hover-color: color.mix($mix, $bg-color, 12%);
         background-color: $hover-color;
         color: f.yiq-contrast-color($hover-color);
+      }
+    }
+
+    // Subtle 135deg gradient: base -> slightly brighter base.
+    // background-image paints over the flat background-color of the variant.
+    &.btn--gradient {
+      $grad-top: color.scale($bg-color, $lightness: +18%);
+      background-image: linear-gradient(135deg, $grad-top, $bg-color);
+      border-color: transparent;
+
+      &:hover {
+        $grad-top-hover: color.scale($bg-color, $lightness: +28%);
+        background-image: linear-gradient(135deg, $grad-top-hover, $bg-color);
       }
     }
   }
@@ -49,8 +62,8 @@
 }
 
 .btn {
-  background-color: #fff;
-  color: #000;
+  background-color: var(--color-surface);
+  color: var(--color-body-text);
 
   padding: calc(var(--space-1) * 1.5) calc(var(--space-2) * 1.75);
 
@@ -67,10 +80,9 @@
     border-color var(--transition-time-base) var(--transition-function-base);
 
   &:hover:not([class~="btn--primary"]):not([class~="btn--secondary"]):not([class~="btn--accent"]):not([class~="btn--highlight"]):not([class~="btn--quiet"]):not([class~="btn--link"]) {
-    $hover-color: color.mix(#000, #fff, 8%);
-    background-color: $hover-color;
+    background-color: var(--color-off-white);
     border-color: var(--color-border-hover);
-    color: f.yiq-contrast-color($hover-color);
+    color: var(--color-body-text);
   }
 
   &--big {
@@ -100,7 +112,7 @@
 
     &:focus-visible {
       outline: none;
-      box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.25);
+      box-shadow: inset 0 0 0 2px rgba(var(--color-body-text-rgb), 0.25);
     }
   }
 }
