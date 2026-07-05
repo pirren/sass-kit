@@ -1,22 +1,22 @@
 // settings/variables/_colors.scss
 
-$color-primary: #1f7a5c !default;
-$color-secondary: #434849 !default;
-$color-accent: #643173 !default;
+$color-primary: #1f7a5c !default; // moss / pine green — brand anchor
+$color-secondary: #3f4744 !default; // refined dark slate (subtle green undertone)
+$color-accent: #e8674f !default; // coral — complementary pop to the green
 
 $color-body-bg: #ffffff !default;
 $color-body-text: #212925 !default;
-$color-gray: #858585 !default;
+$color-gray: #767c7a !default; // neutral slate-gray, ties to the palette
 $color-border: #dbdddd !default;
 $color-border-hover: #cccccc !default;
 
-$color-link: #43489d !default;
-$color-link-hover: #343777 !default;
+$color-link: #3355cc !default; // clean royal-indigo blue (~6.3:1 on white)
+$color-link-hover: #2843a8 !default;
 
-$color-success: #1f7a4b !default;
-$color-info:    #0f5c8c !default;
-$color-warning: #b7791f !default;
-$color-danger:  #b03a2e !default;
+$color-success: #2f9e44 !default; // fresh grass green — distinct from the pine primary
+$color-info:    #1c7ed6 !default; // clean informational blue
+$color-warning: #e08c0a !default; // golden amber
+$color-danger:  #d92d20 !default; // deep true red
 
 $color-fill-white: #fff;
 $color-fill-black: #000;

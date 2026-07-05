@@ -1,22 +1,42 @@
 /* components/_card.scss */
 
+// The card is the canonical surface primitive: a bordered, rounded panel.
+// Padding is included by default and can be removed with `--flush` for
+// edge-to-edge content (media, color fills, tables, etc.).
 .card {
   background: var(--color-white, #fff);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-4);
   padding: var(--space-4);
-  
+
+  &--flush {
+    padding: 0;
+  }
+
   &--outline {
     background: transparent;
   }
 
   &--soft {
-    background: var(--color-whitesmoke);
-    border-color: rgba(0, 0, 0, 0.08);
+    background: var(--color-off-white);
+    border-color: transparent;
   }
 
   &--elevated {
-    border-color: rgba(0, 0, 0, 0.08);
     box-shadow: var(--shadow-1);
+  }
+
+  // Opt-in hover affordance for clickable cards
+  &--interactive {
+    transition: transform var(--transition-time-base) var(--transition-function-base),
+      box-shadow var(--transition-time-base) var(--transition-function-base),
+      border-color var(--transition-time-base) var(--transition-function-base);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-2);
+      border-color: var(--color-border-hover);
+    }
   }
 
   &__title {
@@ -32,7 +52,6 @@
   &__footer {
     margin-top: var(--space-3);
     padding-top: var(--space-3);
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-top: 1px solid var(--color-border);
   }
 }
-
