@@ -22,6 +22,16 @@
     border-color: transparent;
   }
 
+  // Role surfaces — a tinted background with a matching, same-hue border (like
+  // alert variants). Both tokens are theme-aware, so light uses opaque tints and
+  // dark uses translucent overlays automatically.
+  @each $role in (primary, secondary, accent, link, success, info, warning, danger) {
+    &--#{$role} {
+      background: var(--color-#{$role}-surface);
+      border-color: var(--color-#{$role}-surface-border);
+    }
+  }
+
   &--elevated {
     box-shadow: var(--shadow-1);
   }

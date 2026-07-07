@@ -90,10 +90,11 @@
   --color-link: #{s.$color-link};            --color-link-rgb: #{rgb-triplet(s.$color-link)};
   --color-link-hover: #{s.$color-link-hover}; --color-link-hover-rgb: #{rgb-triplet(s.$color-link-hover)};
 
-  --color-primary-surface: #{map.get(s.$colors, "primary-surface")};
-  --color-secondary-surface: #{map.get(s.$colors, "secondary-surface")};
-  --color-accent-surface: #{map.get(s.$colors, "accent-surface")};
-  --color-link-surface: #{map.get(s.$colors, "link-surface")};
+  // Surface tint + matching border for every surface role (opaque tints).
+  @each $role in s.$color-surface-roles {
+    --color-#{$role}-surface: #{map.get(s.$colors, "#{$role}-surface")};
+    --color-#{$role}-surface-border: #{map.get(s.$colors, "#{$role}-surface-border")};
+  }
 }
 
 @mixin theme-dark {
@@ -120,11 +121,18 @@
   --color-link: #{$link};             --color-link-rgb: #{rgb-triplet($link)};
   --color-link-hover: #{$link-h};     --color-link-hover-rgb: #{rgb-triplet($link-h)};
 
-  // Translucent overlays read correctly on any dark surface
-  --color-primary-surface: rgba(var(--color-primary-rgb), 0.20);
-  --color-secondary-surface: rgba(255, 255, 255, 0.07);
-  --color-accent-surface: rgba(var(--color-accent-rgb), 0.20);
-  --color-link-surface: rgba(#{rgb-triplet($link)}, 0.16);
+  // Translucent overlays read correctly on any dark surface. Secondary is a
+  // dark slate whose own hue would vanish on the dark canvas, so it uses a
+  // neutral white overlay instead.
+  @each $role in s.$color-surface-roles {
+    @if $role == "secondary" {
+      --color-secondary-surface: rgba(255, 255, 255, 0.06);
+      --color-secondary-surface-border: rgba(255, 255, 255, 0.14);
+    } @else {
+      --color-#{$role}-surface: rgba(var(--color-#{$role}-rgb), 0.16);
+      --color-#{$role}-surface-border: rgba(var(--color-#{$role}-rgb), 0.34);
+    }
+  }
 }
 
 // Follow the OS setting out of the box …

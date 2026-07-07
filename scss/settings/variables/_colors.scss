@@ -23,4 +23,5 @@ $color-fill-black: #000;
 $color-fill-off-white: #e9efec !default; // sunken/hover step, sits below body-bg in the light ramp
 
 $color-surface: #ffffff !default;
-$color-surface-strength: 88% !default;
+$color-surface-strength: 88% !default;        // light surface tint (higher = lighter)
+$color-surface-border-strength: 70% !default; // matching border, a step stronger than the tint
