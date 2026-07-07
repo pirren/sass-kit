@@ -4,7 +4,7 @@ $color-primary: #1f7a5c !default; // moss / pine green — brand anchor
 $color-secondary: #3f4744 !default; // refined dark slate (subtle green undertone)
 $color-accent: #e8674f !default; // coral — complementary pop to the green
 
-$color-body-bg: #ffffff !default;
+$color-body-bg: #f4f7f5 !default; // soft off-white (faint green) so white surfaces read against it
 $color-body-text: #212925 !default;
 $color-gray: #767c7a !default; // neutral slate-gray, ties to the palette
 $color-border: #dbdddd !default;
@@ -20,7 +20,7 @@ $color-danger:  #d92d20 !default; // deep true red
 
 $color-fill-white: #fff;
 $color-fill-black: #000;
-$color-fill-off-white: #f2f4f7 !default;
+$color-fill-off-white: #e9efec !default; // sunken/hover step, sits below body-bg in the light ramp
 
 $color-surface: #ffffff !default;
 $color-surface-strength: 88% !default;

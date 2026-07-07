@@ -18,7 +18,7 @@
 $color-scale-roles: ("primary", "secondary", "accent", "gray") !default;
 
 // Roles that should receive very-light surface/fill variants
-$color-surface-roles: ("primary", "secondary", "accent", "link") !default;
+$color-surface-roles: ("primary", "secondary", "accent", "link", "success", "info", "warning", "danger") !default;
 
 // Master color map
 $colors: (

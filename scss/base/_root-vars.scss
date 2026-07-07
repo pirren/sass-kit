@@ -20,38 +20,12 @@
     }
   }
 
-  --color-gray: #{s.$color-gray};
-  --color-gray-rgb:  #{rgb-triplet(s.$color-gray)};
   --color-muted: #{s.$color-gray};
-
-  --color-body-bg: #{s.$color-body-bg};
-  --color-body-bg-rgb: #{rgb-triplet(s.$color-body-bg)};
-  --color-body-text: #{s.$color-body-text};
-  --color-body-text-rgb: #{rgb-triplet(s.$color-body-text)};
-
-  --color-border: #{s.$color-border};
-  --color-border-rgb: #{rgb-triplet(s.$color-border)};
-  --color-border-hover: #{s.$color-border-hover};
-  --color-border-hover-rgb: #{rgb-triplet(s.$color-border-hover)};
-
-  --color-link: #{s.$color-link};
-  --color-link-rgb: #{rgb-triplet(s.$color-link)};
-  --color-link-hover: #{s.$color-link-hover};
-  --color-link-hover-rgb: #{rgb-triplet(s.$color-link-hover)};
-
-  --color-success: #{s.$color-success};
-  --color-info: #{s.$color-info};
-  --color-warning: #{s.$color-warning};
-  --color-danger: #{s.$color-danger};
-
-  --color-white: #{s.$color-fill-white};
-  --color-black: #{s.$color-fill-black};
 
   /* typography */
   --font-body: #{s.$font-body};
   --font-heading: #{s.$font-heading};
   --font-monospace: #{s.$font-monospace};
-  --font-size-base: #{s.$font-size-base};
   @each $val in s.$font-weights {
     --font-weight-#{$val}: #{$val};
   }
