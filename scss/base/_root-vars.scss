@@ -10,8 +10,6 @@
 
 // Root vars: Public runtime token surface
 :root {
-  color-scheme: light;
-
   /* colors */
   @each $name, $value in s.$colors {
     --color-#{$name}: #{$value};
@@ -155,12 +153,12 @@
   --color-link-surface: rgba(#{rgb-triplet($link)}, 0.16);
 }
 
-// 1) Follow the OS setting out of the box …
+// Follow the OS setting out of the box …
 @media (prefers-color-scheme: dark) {
   :root { @include theme-dark; }
 }
 
-// 2) … and allow an explicit override via a class on <html> or <body>.
-//    Placed after the media query so an explicit choice always wins.
-.theme-light { @include theme-light; }
-.theme-dark { @include theme-dark; }
+// Explicit overrides. Attribute selectors come after `:root` so they win by
+// source order (and on <body> they also win over <html> by proximity).
+[data-theme="light"] { @include theme-light; }
+[data-theme="dark"]  { @include theme-dark; }

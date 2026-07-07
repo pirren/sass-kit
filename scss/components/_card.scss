@@ -39,10 +39,23 @@
     }
   }
 
+  /* Card title */
   &__title {
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-4);
     font-weight: 600;
     line-height: 1.2;
+  }
+
+  /* Card label, a variant to the title */
+  &__label {
+    font-size: var(--font-size-sm, 0.85rem);
+    margin-bottom: var(--space-3);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
   }
 
   &__body {

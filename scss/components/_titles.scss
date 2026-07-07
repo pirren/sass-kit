@@ -31,3 +31,41 @@
 
   @include type-scale(subtitle, s.$subtitle-scale);
 }
+
+/* 
+  Eyebrow, a small label above a title or subtitle 
+  Default is primary color, but can be overridden with a utility class like .eyebrow--muted
+*/
+.eyebrow {
+  display: inline-block;
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  // Bend primary toward the current text color so it stays legible on both
+  // the light and dark canvas (deeper green on white, brighter on dark).
+  color: color-mix(in srgb, var(--color-primary) 75%, var(--color-body-text));
+  margin-bottom: var(--space-2);
+
+  &--muted {
+    color: var(--color-muted);
+  }
+  &--accent {
+    color: var(--color-accent);
+  }
+  &--secondary {
+    color: var(--color-secondary);
+  }
+  &--success {
+    color: var(--color-success);
+  }
+  &--info {
+    color: var(--color-info);
+  }
+  &--warning {
+    color: var(--color-warning);
+  }
+  &--danger {
+    color: var(--color-danger);
+  }
+}
