@@ -1,10 +1,20 @@
 // settings/variables/_colors.scss
 
+@use '../functions' as f;
+
 $color-primary: #1f7a5c !default; // moss / pine green — brand anchor
+
+// How much of $color-primary's hue bleeds into the theme neutrals (page bg,
+// surfaces, borders — in both light and dark). Fixed saturation means the tint
+// stays this subtle no matter how vivid the primary is. Set to 0% for pure,
+// true-neutral grays.
+$theme-tint-saturation: 6% !default;
 $color-secondary: #3f4744 !default; // refined dark slate (subtle green undertone)
 $color-accent: #e8674f !default; // coral — complementary pop to the green
 
-$color-body-bg: #f4f7f5 !default; // soft off-white (faint green) so white surfaces read against it
+// Soft off-white page carrying a whisper of the brand hue (fixed saturation,
+// so it never over-tints); follows a $color-primary override.
+$color-body-bg: f.hue-shade($color-primary, $theme-tint-saturation, 97.5%) !default;
 $color-body-text: #212925 !default;
 $color-gray: #767c7a !default; // neutral slate-gray, ties to the palette
 $color-border: #dbdddd !default;
@@ -20,7 +30,9 @@ $color-danger:  #d92d20 !default; // deep true red
 
 $color-fill-white: #fff;
 $color-fill-black: #000;
-$color-fill-off-white: #e9efec !default; // sunken/hover step, sits below body-bg in the light ramp
+// Sunken/hover step — a touch darker than body-bg, so it sits just below it in
+// the light ramp. Same fixed-saturation whisper of the brand hue.
+$color-fill-off-white: f.hue-shade($color-primary, $theme-tint-saturation, 94.5%) !default;
 
 $color-surface: #ffffff !default;
 $color-surface-strength: 88% !default;        // light surface tint (higher = lighter)
