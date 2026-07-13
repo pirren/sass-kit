@@ -48,7 +48,10 @@
     --shadow-#{$step}: #{$val};
   }
 
+  /* layout */
+  --navbar-height: 4.5rem;
   --column-gap: #{s.$column-gap};
+  --container-padding-x: var(--spacing-3);
 
   /* buttons */
   --button-border-radius: #{s.$button-border-radius};

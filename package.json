@@ -1,0 +1,22 @@
+{
+  "name": "dashcss",
+  "version": "1.0.0",
+  "description": "A modular and scalable Sass framework designed for focused, quick and maintainable UI development. It includes design tokens, mixins, functions and responsive utility class generation.",
+  "private": true,
+  "keywords": [],
+  "author": "Pierre Nygård",
+  "files": [
+    "scss"
+  ],
+  "exports": {
+    ".": "./scss/_index.scss",
+    "./abstracts": "./scss/_abstracts.scss"
+  },
+  "devDependencies": {
+    "sass": "^1.101.0"
+  },
+  "scripts": {
+    "sass:build": "sass scss/_index.scss dist/style.css --no-source-map",
+    "sass:watch": "sass scss/_index.scss dist/style.css --watch --update"
+  }
+}

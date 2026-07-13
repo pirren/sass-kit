@@ -1,6 +1,8 @@
 /* _index.scss */
 
-@forward 'settings';
+// Public API (tokens, functions, mixins), also available CSS-free via
+// `@use "dashcss/abstracts"`.
+@forward 'abstracts';
 
 // base
 @use 'base/base';
