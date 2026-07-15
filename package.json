@@ -1,6 +1,6 @@
 {
   "name": "dashcss",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A modular and scalable Sass framework designed for focused, quick and maintainable UI development. It includes design tokens, mixins, functions and responsive utility class generation.",
   "private": true,
   "keywords": [],
